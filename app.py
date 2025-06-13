@@ -18,8 +18,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+HF_TOKEN = st.secrets["HF_TOKEN"]
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", api_key=HF_TOKEN)
 
 ## Setup the streamlit app
 st.set_page_config(page_title="PDF Chatbot")
